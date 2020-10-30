@@ -1,0 +1,125 @@
+//
+//  V A R I A B L E S
+//
+//  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+//  Colors
+//  ───────────────────────────────────
+@function clr($key) {
+    @return map-get($colors, $key);
+}
+
+$colors: (primary: #005F6C,
+    primary-light: #337F89,
+    primary-lighter: #8DB7BE,
+);
+
+$colors: map-merge((alert: #BF5544,
+        warning: #B8860B,
+        info: #205D86,
+        success: #8F9F60,
+    ),
+    $colors);
+
+$colors: map-merge((black: #0C0A09,
+        gray-light: #DFEAEC,
+        gray: #92A3A5,
+        promo: #C7270E,
+        white: #FFF,
+    ),
+    $colors);
+
+//  Fonts
+//  ───────────────────────────────────
+@font-face {
+    font-family: 'Gotham Book';
+    font-style: normal;
+    font-weight: 300;
+
+    src: url('./fonts/Gotham-Light.woff2') format('woff2'),
+        url('./fonts/Gotham-Light.woff') format('woff'),
+        url('./fonts/Gotham-Light.otf') format('opentype'),
+        url('./fonts/Gotham-Light.ttf') format('truetype');
+}
+
+//  Animations
+//  ───────────────────────────────────
+$anim-duration: 250ms;
+$anim-easing: cubic-bezier(.55, 0, .1, 1);
+$anim: $anim-duration $anim-easing;
+
+//  Grid
+//  ───────────────────────────────────
+$row-width: 144rem;
+$container-width: 100%;
+$total-columns: 32;
+$column-gutter: 0;
+$column-width: 4.5rem;
+
+$debgrid: (horizontal: false,
+    maxwidth: $row-width,
+    width: $container-width,
+    columns: $total-columns,
+    gutter: $column-gutter,
+    colorColumnOdd: rgba(clr(black), .2),
+    colorColumnEven: rgba(clr(black), .1),
+    colorGutter: rgba(clr(black), .05),
+    vertical: false,
+    vertical-size: $vr,
+    colorVOdd: rgba(clr(black), .1),
+    colorVEven: transparent);
+
+//  Breakpoints
+//  ───────────────────────────────────
+$sm-breakpoint: 640px;
+$md-breakpoint: 1024px;
+$lg-breakpoint: 1366px;
+$xlg-breakpoint: 1440px;
+
+$sm-range: (0, $sm-breakpoint);
+$md-range: ($sm-breakpoint + 1px, $md-breakpoint);
+$lg-range: ($md-breakpoint + 1px, $lg-breakpoint);
+$xlg-range: ($lg-breakpoint + 1px, $xlg-breakpoint);
+
+$screen: 'only screen';
+
+$sm-up: $screen;
+$sm-only: '#{$screen} and (max-width: #{nth($sm-range, 2)})';
+
+$md-up: '#{$screen} and (min-width:#{nth($md-range, 1)})';
+$md-only: '#{$screen} and (min-width:#{nth($md-range, 1)}) and (max-width:#{nth($md-range, 2)})';
+
+$lg-up: '#{$screen} and (min-width:#{nth($lg-range, 1)})';
+$lg-only: '#{$screen} and (min-width:#{nth($lg-range, 1)}) and (max-width:#{nth($lg-range, 2)})';
+
+$xlg-up: '#{$screen} and (min-width:#{nth($xlg-range, 1)})';
+$xlg-only: '#{$screen} and (min-width:#{nth($xlg-range, 1)}) and (max-width:#{nth($xlg-range, 2)})';
+
+$retina: ('#{$screen} and (-webkit-min-device-pixel-ratio: 2)',
+    '#{$screen} and (min--moz-device-pixel-ratio: 2)',
+    '#{$screen} and (-o-min-device-pixel-ratio: 2/1)',
+    '#{$screen} and (min-device-pixel-ratio: 2)',
+    '#{$screen} and (min-resolution: 192dpi)',
+    '#{$screen} and (min-resolution: 2dppx)'
+);
+
+// Legacy
+$sm: $sm-up;
+$md: $md-up;
+$lg: $lg-up;
+$xlg: $xlg-up;
+
+$bps: (#{$sm} 'sm',
+    #{$md} 'md',
+    #{$lg} 'lg',
+    #{$xlg} 'xlg'
+);
+
+//  Resolution
+//  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$resolution-base: 1440;
+$resolution-mockup: 1920;
+
+//  Vertical rythmn
+//  ───────────────────────────────────
+$vr: 2rem;

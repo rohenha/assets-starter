@@ -1,0 +1,20 @@
+{
+  "name": "assets-starter",
+  "version": "1.0.0",
+  "description": "For more informations about [Atomic Design](https://www.usabilis.com/atomic-design/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohenha/assets-starter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohenha/assets-starter/issues"
+  },
+  "homepage": "https://github.com/rohenha/assets-starter#readme"
+}

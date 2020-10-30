@@ -1,0 +1,21 @@
+//
+//  M I X I N S
+//
+//  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+@mixin selector($selector, $mq) {
+    $new-sel: str-insert($selector, $mq + '-', 2);
+    $sel: '';
+
+    @if ($mq=='sm') {
+        $sel: '#{$selector}, #{$new-sel}';
+    }
+
+    @else {
+        $sel: '#{$new-sel}';
+    }
+
+    #{$sel} {
+        @content;
+    }
+}
