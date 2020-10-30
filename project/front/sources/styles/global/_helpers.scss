@@ -1,0 +1,141 @@
+//
+//  H E L P E R S
+//
+//  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+@each $bp_o in $bps {
+  $bp_k: nth($bp_o, 1);
+  $bp_v: nth($bp_o, 2);
+
+  @media #{$bp_k} {
+
+    //  Text align
+    //  ───────────────────────────────────
+    @include selector('.text-left', $bp_v) {
+      text-align: left !important;
+    }
+
+    @include selector('.text-center', $bp_v) {
+      text-align: center !important;
+    }
+
+    @include selector('.text-right', $bp_v) {
+      text-align: right !important;
+    }
+
+    //  Colors
+    //  ───────────────────────────────────
+    @each $color in $colors {
+      $c_name: nth($color, 1);
+      $c_hex: nth($color, 2);
+      @include selector('.text-#{$c_name}', $bp_v) {
+
+        &,
+        p,
+        a:not(.button) {
+          color: $c_hex !important;
+        }
+      }
+    }
+
+    //  Backgrounds
+    //  ───────────────────────────────────
+    @each $color in $colors {
+      $c_name: nth($color, 1);
+      $c_hex: nth($color, 2);
+      @include selector('.bg-#{$c_name}', $bp_v) {
+        background-color: $c_hex;
+      }
+    }
+  }
+}
+
+.text-white a:not(.button) {
+  color: clr(white) !important;
+
+  border-color: clr(white);
+}
+
+//  Ratio
+//  ───────────────────────────────────
+[class*='ratio-'] {
+  position: relative;
+
+  img:not(.no-cover) {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &::before {
+    display: block;
+    width: 100%;
+
+    content: '';
+  }
+
+  @media #{$lg} {
+    .lg-ratio-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      img {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.ratio-1_1 {
+  &::before {
+    padding-top: (1 / 1) * 100%;
+  }
+}
+
+.ratio-3_5 {
+  &::before {
+    padding-top: (5 / 3) * 100%;
+  }
+}
+
+.ratio-3_4 {
+  &::before {
+    padding-top: (4 / 3) * 100%;
+  }
+}
+
+.sm-ratio-4_3 {
+  &::before {
+    padding-top: (3 / 4) * 100%;
+  }
+}
+
+@media #{$md} {
+  .md-ratio-3_4 {
+    &::before {
+      padding-top: (4 / 3) * 100%;
+    }
+  }
+}
+
+@media #{$lg} {
+  .lg-ratio-1_1 {
+    &::before {
+      padding-top: (1 / 1) * 100%;
+    }
+  }
+}
+
+.mg-auto {
+  margin-right: auto;
+  margin-left: auto;
+}

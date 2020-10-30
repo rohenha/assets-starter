@@ -1,0 +1,28 @@
+// Function to convert px to rem
+@function px2rem($size) {
+  $remSize: $size / $font-size-base;
+
+  @return #{$remSize}rem;
+}
+
+// Function to convert px to rem for retina
+@function pxr2rem($size) {
+  $remSize: $size / $font-size-base / 2;
+
+  @return #{$remSize}rem;
+}
+
+// Function to convert letter spacing photoshop to rem
+@function ls2rem($size) {
+  $remSize: $size / 1000;
+
+  @return #{$remSize}rem;
+}
+
+// Function to convert px to rem with custom resolution of mockup
+@function px2remcustomsize($size) {
+  $customSize: $size * $resolution-base / $resolution-mockup;
+  $remSize: $customSize / $font-size-base;
+
+  @return #{$remSize}rem;
+}

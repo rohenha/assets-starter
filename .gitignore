@@ -1,0 +1,77 @@
+# System
+# ------------
+Icon
+.DS_Store
+
+
+# Editors
+# ------------
+.vscode
+
+
+# Dependencies
+# ---------------
+/vendor
+./node_modules
+
+
+# Plugins
+# ---------------
+/project/engine/plugins/*
+!/project/engine/plugins/.keep
+!/project/engine/plugins/troaby-*
+
+
+# Cache
+# ---------------
+/store/cache/*
+!/store/cache/.keep
+
+
+# Logs
+# ---------------
+/store/logs/*
+!/store/logs/.keep
+
+
+# Accounts
+# ---------------
+/store/safe/accounts/*
+!/store/safe/accounts/.keep
+
+
+# Sessions
+# ---------------
+/store/safe/sessions/*
+!/store/safe/sessions/.keep
+
+
+# License
+# ---------------
+/project/config/.license
+
+
+# Assets
+# ---------------
+# /public/assets/*
+# !/public/assets/.keep
+
+
+# Content
+# ---------------
+/public/content/*
+
+
+# Media
+# ---------------
+/public/media/*
+!/public/media/.keep
+
+
+# Eshop
+# ---------------
+/eshop
+public/eshop
+.docker/mysql/data/
+
+.htaccess
