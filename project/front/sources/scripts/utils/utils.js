@@ -21,9 +21,9 @@
  * })
  */
 export let ready = function (fn, element = document) {
-    element.readyState !== "loading"
-        ? fn.apply(element)
-        : element.addEventListener("DOMContentLoaded", fn.bind(element));
+  element.readyState !== "loading"
+    ? fn.apply(element)
+    : element.addEventListener("DOMContentLoaded", fn.bind(element));
 };
 
 /**
@@ -46,15 +46,15 @@ export let ready = function (fn, element = document) {
  * ))
  */
 export let debounce = function (callback, delay) {
-    let timer;
-    return () => {
-        let args = arguments;
-        let context = this;
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            callback.apply(context, args);
-        }, delay);
-    };
+  let timer;
+  return () => {
+    let args = arguments;
+    let context = this;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      callback.apply(context, args);
+    }, delay);
+  };
 };
 
 /**
@@ -77,23 +77,23 @@ export let debounce = function (callback, delay) {
  * ))
  */
 export let throttle = function (callback, delay) {
-    let last,
-        timer;
-    return () => {
-        let args = arguments,
-            context = this,
-            now = +new Date();
-        if (last && now < last + delay) {
-            clearTimeout(timer);
-            timer = setTimeout(() => {
-                last = now;
-                callback.apply(context, args);
-            }, delay);
-        } else {
-            last = now;
-            callback.apply(context, args);
-        }
-    };
+  let last,
+    timer;
+  return () => {
+    let args = arguments,
+      context = this,
+      now = +new Date();
+    if (last && now < last + delay) {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        last = now;
+        callback.apply(context, args);
+      }, delay);
+    } else {
+      last = now;
+      callback.apply(context, args);
+    }
+  };
 };
 
 /**
@@ -107,7 +107,7 @@ export let throttle = function (callback, delay) {
  * @returns {nodeElement}
  * @example
  * <!-- Considering following HTML structure -->
- * <div classe="foo">
+ * <div class="foo">
  *    <div class="bar">
  *      <div id="baz">
  *        lorem ipsum
@@ -121,18 +121,16 @@ export let throttle = function (callback, delay) {
  * closest(document.querySelector('#baz'), '.foo');
  */
 export let closest = function (element, selector, stopSelector = "body") {
-    if (!Element.prototype.matches) {
-        Element.prototype.matches = Element.prototype.msMatchesSelector;
+  if (!Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector;
+  let retval = null;
+  while (element) {
+    if (element.matches(selector)) {
+      retval = element;
+      break;
+    } else if (stopSelector && element.matches(stopSelector)) {
+      break;
     }
-    let retval = null;
-    while (element) {
-        if (element.matches(selector)) {
-            retval = element;
-            break;
-        } else if (stopSelector && element.matches(stopSelector)) {
-            break;
-        }
-        element = element.parentElement;
-    }
-    return retval;
+    element = element.parentElement;
+  }
+  return retval;
 };

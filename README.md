@@ -16,7 +16,7 @@ For the stylesheets class naming convention and we will use the [ABEM](https://c
 
 ## Javascript
 
-## CSS Comb
+## CSS Comb (Deprecated)
 
 CSS comb is an extension for VS Code to beautify the css and rearrange it with some rules.
 To enable, you need to install it, search 'csscomb'.
@@ -28,12 +28,22 @@ Then when you will save your scss or sass file it will beautify it without effor
 
 To lint SCSS, we will use the [stylelint](https://stylelint.io/) extension.
 To enable, you need to install it, search 'stylelint'.
+After that, you will need to install globally stylelint 
+```shell
+yarn add global stylelint
+yarn add global stylelint-order
+```
 Then to be used in the project you need to add the stylelint.config.js file in the root folder or your project, and then when you wil save a SCSS file, the linter will search errors in it
 
 ## ES Lint
 
 To lint js we will use [ESLint](https://eslint.org/).
-To work, it need to be installed on vscode. After that, Eslint will search a config file (.eslintrc.yml) and trim all js files with the configuration.
+To work, it need to be installed on vscode.
+After that, we will need to install in global eslint
+```shell
+yarn add global eslint
+```
+Then, Eslint will search a config file (.eslintrc.yml) and trim all js files with the configuration.
 
 ## Todo
 
