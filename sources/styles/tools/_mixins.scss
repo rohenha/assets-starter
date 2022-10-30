@@ -1,0 +1,134 @@
+//
+//  M I X I N S
+//
+//  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// @function str-replace($string, $search, $replace: '') {
+//   $index: str-index($string, $search);
+  
+//   @if $index {
+//     @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+//   }
+  
+//   @return $string;
+// }
+
+@mixin selector($selector, $mq) {
+  $new-sel: str-insert($selector, $mq + '-', 2);
+  $placeholder: str-replace($selector, '.', '%');
+
+  // $placeholder: str-replace($placeholder, '-', '_');
+  $sel: '';
+
+  @if $mq == 'sm' {
+    $sel: '#{$selector}, #{$new-sel}';
+  } @else {
+    $sel: '#{$new-sel}';
+  }
+
+  #{$sel} {
+    @content;
+  }
+}
+
+@function col($nbr) {
+  @return (100% * ($nbr * ($column-width + $column-gutter))) / $row-width;
+}
+
+//
+// Applies accessible hiding to the current element.
+//
+// @param  {Boolean} $important [true] - Whether the visibility is important.
+// @output Properties for removing the element from the document flow.
+//
+@mixin u-accessibly-hidden($important: true) {
+  $important: important($important);
+
+  position: absolute $important;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+//
+// Allows an accessibly hidden element to be focusable via keyboard navigation.
+//
+// @content For styling the now visible element.
+// @output  Injects `:focus`, `:active` pseudo-classes.
+//
+@mixin u-accessibly-focusable {
+  @include u-actus {
+
+    @content;
+
+    clip: auto;
+    width: auto;
+    height: auto;
+  }
+}
+
+//
+// Vertically-center the direct descendants of the current element.
+//
+// Centering is achieved by displaying children as inline-blocks. Any whitespace
+// between elements is nullified by redefining the font size of the container
+// and its children.
+//
+// @output `font-size`, `display`, `vertical-align`
+//
+@mixin o-vertical-center {
+  font-size: 0;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1rem;
+  }
+}
+
+//
+// Hide the current element from all.
+//
+// The element will be hidden from screen readers and removed from the document flow.
+//
+// @link   http://juicystudio.com/article/screen-readers-display-none.php
+// @param  {Boolean} $important [true] - Whether the visibility is important.
+// @output `display`, `visibility`
+//
+@mixin u-hidden($important: true) {
+  $important: important($important);
+
+  display: none   $important;
+  visibility: hidden $important;
+}
+
+//
+// Show the current element for all.
+//
+// The element will be accessible from screen readers and visible in the document flow.
+//
+// @param  {String}  $display   [block] - The rendering box used for the element.
+// @param  {Boolean} $important [true]  - Whether the visibility is important.
+// @output `display`, `visibility`
+//
+@mixin u-shown($display: block, $important: true) {
+  $important: important($important);
+
+  display: $display $important;
+  visibility: visible  $important;
+}
+
+@function clr($key) {
+  @return map-get($colors, $key);
+}

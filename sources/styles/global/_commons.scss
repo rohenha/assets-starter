@@ -1,0 +1,67 @@
+html {
+  color: var(--cprimary);
+  font-weight: normal;
+  font-size: var(--fsize);
+  font-family: var(--font-regular);
+  scroll-behavior: initial;
+  font-variant-numeric: lining-nums;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  text-size-adjust: 100%;
+
+  &.is-loading,
+  &.is-loading * {
+    cursor: progress;
+    pointer-events: none;
+  }
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricprecision;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--ccwhite);
+}
+
+img {
+  max-width: 100%;
+}
+
+hr {
+  margin: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--ccblack);
+  border-top: 0;
+}
+
+.dg.ac {
+  z-index: 5 !important;
+}
+
+.a-block {
+  width: 100%;
+  height: 50rem;
+
+  &:not(:last-child) {
+    margin-bottom: var(--vr);
+  }
+
+  &.-primary {
+    background-color: var(--cprimary);
+  }
+
+  &.-secondary {
+    background-color: var(--cfacebook);
+  }
+
+  &.-third {
+    background-color: var(--cinstagram);
+  }
+}

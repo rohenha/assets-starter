@@ -1,0 +1,7 @@
+.o-blocks {
+  > * {
+    &:not(:last-child) {
+      margin-bottom: 6rem;
+    }
+  }
+}

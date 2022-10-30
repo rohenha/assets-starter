@@ -1,0 +1,30 @@
+.m-slider {
+  overflow: hidden;
+  &__container {
+    display: flex;
+  }
+
+  &__item {
+    position: relative;
+    flex: 0 0 100%;
+  }
+
+  @media #{$md} {
+    &[data-size] & {
+      &__item {
+        flex: 0 0 50%;
+      }
+    }
+
+  }
+
+  @media #{$lg} {
+    &[data-size] & {
+      &__item {
+        flex: 0 0 calc(100% / var(--size));
+        padding-right: calc(var(--space) / 2);
+        padding-left: calc(var(--space) / 2);
+      }
+    }
+  }
+}

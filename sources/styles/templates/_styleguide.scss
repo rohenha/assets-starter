@@ -1,0 +1,62 @@
+.t-styleguide{
+  &__header {
+    margin-bottom: 60px;
+    padding: 30px 0;
+    border-top: 1px solid clr(styleguide);
+    border-bottom: 1px solid clr(styleguide);
+
+    p {
+      text-transform: uppercase;
+      span {
+        margin-right: 15px;
+        color: clr(styleguide);
+      }
+    }
+  }
+
+  &__header p,
+  &__circles p,
+  &__elementTitle {
+    color: clr(styleguide);
+    font-size: 1.2rem;
+    line-height: 1.16;
+  }
+
+  &__section {
+    &:not(:last-child) {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__element {
+    margin-bottom: 30px;
+  }
+
+  &__elementTitle {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+
+  &__circles {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    li {
+      &:not(:last-child) {
+        margin-right: 16px;
+      }
+    }
+  }
+
+  &__circle {
+    display: inline-block;
+    width: 95px;
+    height: 95px;
+    margin-bottom: 10px;
+    border-radius: 95px;
+    + p {
+      text-align: center;
+    }
+  }
+
+}

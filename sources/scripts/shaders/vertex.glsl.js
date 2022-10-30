@@ -1,0 +1,1 @@
+module.exports = "#define GLSLIFY 1\nattribute vec2 uv;\nattribute vec3 position;\n \nuniform mat4 modelViewMatrix;\nuniform mat4 projectionMatrix;\n \nvarying vec2 vUv;\n \nvoid main() {\n  vUv = uv;\n \n  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);\n}";

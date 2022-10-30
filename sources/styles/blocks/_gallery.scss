@@ -1,0 +1,18 @@
+.b-gallery {
+  &__list {
+    display: grid;
+    gap: 3rem;
+  }
+
+  @media #{$md} {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media #{$lg} {
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

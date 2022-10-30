@@ -1,0 +1,21 @@
+.o-loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 901;
+  width: 100%;
+  height: 100%;
+  background-color: var(--ctwitter);
+  opacity: 1;
+  visibility: visible;
+
+  &__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160px;
+    height: 135px;
+    fill: clr(primary),;
+    transform: translate(-50%, -50%)
+  }
+}

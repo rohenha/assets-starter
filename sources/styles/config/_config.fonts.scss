@@ -1,0 +1,31 @@
+// @font-face {
+//   font-family: 'Futura PT Cond';
+//   font-style: normal;
+//   font-weight: 500;
+//   font-display: swap;
+
+//   src: url('/assets/fonts/futura/FuturaPTCond-Medium.woff2') format('woff2'),
+//       url('/assets/fonts/futura/FuturaPTCond-Medium.woff') format('woff'),
+//       url('/assets/fonts/futura/FuturaPTCond-Medium.ttf') format('truetype');
+// }
+$assets-path: "../" !default;
+
+@include font-face(
+  "Radio Grotesk",
+  "assets/fonts/radiogrotesk/RadioGrotesk-Regular",
+  ("woff2", "woff", "ttf")
+) {
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@include font-face(
+  "Radio Grotesk",
+  "assets/fonts/radiogrotesk/RadioGrotesk-Bold",
+  ("woff2", "woff", "ttf")
+) {
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

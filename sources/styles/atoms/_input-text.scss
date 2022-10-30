@@ -1,0 +1,53 @@
+.a-inputemail,
+.a-inputtel,
+.a-inputnumber,
+.a-inputText{
+  position: relative;
+
+  // &__input {
+  //   width: 100%;
+  //   padding: 2.8rem 2.5rem 1.5rem;
+  //   border: 1px solid clr(cgray);
+  //   border-radius: 5rem;
+  //   background-color: inherit;
+  //   font-family: var(--font-regular);
+  //   appearance: none;
+
+  //   &:not([aria-disabled="true"]):focus {
+  //     border-color: clr(cblack);
+  //     outline: none;
+  //   }
+  // }
+
+  // .a-inputField__label {
+  //   position: absolute;
+  //   top: 1.5rem;
+  //   left: 0;
+  //   width: 100%;
+  //   padding: 0 2.5rem;
+  // }
+
+  // &.-noLabel {
+  //   .a-inputtext__input {
+  //     padding-top: 1.5rem;
+  //   }
+  // }
+
+  // &.-error {
+  //   .a-inputtext__input {
+  //     border-color: clr(alert);
+  //     color: clr(alert);
+  //   }
+  // }
+
+  // @media #{$md} {
+  //   &__input {
+  //     &.-hover,
+  //     &:hover {
+  //       &:not([aria-disabled="true"]):not(:focus) {
+  //         border-color: darken(clr(cgray), 10%);
+  //       }
+  //     }
+  //   }
+  // }
+}

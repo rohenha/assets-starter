@@ -1,0 +1,162 @@
+/* --
+primary: #2E3192,
+gray-light: #D5D5E1,
+gray-lighter: #EAEAF4,
+black: #1D203C
+-- */
+
+body, html {
+  color: #2E3192;
+}
+
+/* --
+  Panel
+-- */
+.k-panel {
+  background-color: #EAEAF4;
+}
+
+
+/* --
+  Topbar
+-- */
+.k-topbar,
+.k-topbar-signals,
+.k-topbar-loader {
+  background-color: #2E3192;
+}
+.k-topbar-signals:before,
+.k-topbar-signals:after {
+  content: none;
+}
+.k-topbar-menu .k-link {
+  color: #2E3192;
+}
+.k-topbar-menu [aria-current] .k-link {
+  background-color: #D5D5E1;
+  color: #2E3192;
+}
+
+
+/* --
+  Section
+-- */
+.k-section,
+s.k-sections {
+  padding-bottom: 1rem;
+}
+
+
+/* --
+  Headline
+-- */
+.k-fieldset>.k-grid .k-column .k-headline-field {
+  border-bottom: 2px solid #D5D5E1;
+}
+
+
+/* --
+  List!
+-- */
+.k-list-item-text em {
+  color: #2E3192;
+}
+
+
+/* --
+  Dropdowns
+-- */
+.k-dropdown-content {
+  background-color: #2E3192;
+}
+
+
+/* --
+  Tabs
+-- */
+.k-header-tabs {
+  background-color: #D5D5E1;
+  border-color: #EAEAF4;
+}
+.k-tab-button[aria-current] {
+  background-color: #EAEAF4;
+  border-color: #D5D5E1;
+}
+
+.k-tab-button[aria-current]:before {
+  background-color: #2E3192;
+}
+
+
+/* --
+  Required
+-- */
+.k-field-label abbr {
+  color: #D16464;
+}
+
+/* --
+  Radio
+-- */
+.k-radio-input input:checked+label:before {
+  background-color: #2E3192;
+  border-color: #2E3192;
+}
+
+/* --
+  Counter
+-- */
+.k-counter {
+  color: #2E3192;
+}
+
+/* --
+  Line
+-- */
+.k-line-field:after {
+  background-color: #D5D5E1;
+}
+
+/* --
+  Icon with back-pattern
+-- */
+.k-icon[data-back=black],
+.k-icon[data-back=pattern] {
+  background-color: #2E3192;
+  color: #FFFFFF;
+}
+.k-icon[data-back=black] svg,
+.k-icon[data-back=pattern] svg {
+  opacity: .5 !important;
+  color: #FFFFFF !important;
+}
+
+/* --
+  Structure
+-- */
+.k-structure-form {
+  background-color: #EAEAF4;
+  box-shadow: none;
+}
+
+/* --
+  User icon
+-- */
+.k-user-view-image .k-icon {
+  background: #2E3192;
+  color: #FFFFFF;
+}
+
+.k-form-buttons[data-theme=changes],
+.k-form-buttons[data-theme=lock],
+.k-form-buttons[data-theme=unlock] {
+  color: #FFFFFF;
+}
+
+/* --
+  Doctor/Janitor
+-- */
+.doctor,
+.janitor {
+  background-color: #2E3192 !important;
+}

@@ -1,0 +1,5 @@
+build/
+node_modules/
+utils/
+**/*.yml
+project/theme/sources/styles/utils/**/*.scss

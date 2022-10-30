@@ -1,0 +1,25 @@
+:root {
+  // Typos
+  --font-regular: "Arial", sans-serif;
+  --font-title: "Arial", sans-serif;
+  --fsize: 62.5%;
+
+  // Animations
+  --anim-duration: .25s;
+  --anim-easing: cubic-bezier(.55, 0, .1, 1);
+
+  // Spaces
+  --vr: 3rem;
+
+  // Grid
+  --cols: 24;
+
+  // Button
+  --btnp: 1.2rem 1.2rem;
+
+  // Colors
+  @each $name, $color in $colors {
+    /* stylelint-disable-next-line custom-property-pattern */
+    --c#{"" + $name}: #{$color};
+  }
+}

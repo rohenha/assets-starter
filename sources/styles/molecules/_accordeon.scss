@@ -1,0 +1,41 @@
+.m-accordeon {
+  width: 100%;
+  &__entete {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 4rem 0;
+    border-bottom: 2px solid clr(primary);
+  }
+
+  &__button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    // display: none;
+    width: 100%;
+    height: 100%;
+    border: 0;
+
+    // opacity: 0;
+  }
+
+  &__right {
+    flex-shrink: 0;
+    margin-left: 2rem;
+  }
+
+  &__scroll {
+    overflow: hidden;
+    height: 0;
+  }
+
+  &__content {
+    padding: 2rem 0;
+  }
+}

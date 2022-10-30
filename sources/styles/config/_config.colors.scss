@@ -1,0 +1,18 @@
+$colors: (
+  primary: #000,
+  secondary: #FFF,
+  styleguide: #000,
+);
+$colors: map-merge((
+  alert: #B11730,
+  warning: #B8860B,
+  info: #205D86,
+  success: #09830E,
+  cblack: #0C0A09,
+  cgray: #E5E5E5,
+  cwhite: #FFF,
+  facebook: #3B5998,
+  instagram: #E1306C,
+  youtube: #CD201F,
+  twitter: #1DA1F2,
+), $colors);

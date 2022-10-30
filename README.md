@@ -1,4 +1,4 @@
-# Starter assets for Troa Projects with Atomic Design
+# Troaster for Troa Projects with Atomic Design
 
 For more informations about [Atomic Design](https://www.usabilis.com/atomic-design/)
 
@@ -8,7 +8,9 @@ For more informations about [Atomic Design](https://www.usabilis.com/atomic-desi
 - JS ES6
 - Gulp
 - VS Code
-- CSS Comb or Prettier
+- Prettier
+- Stylelint
+- Eslint
 
 ## Stylesheets
 
@@ -16,13 +18,7 @@ For the stylesheets class naming convention and we will use the [ABEM](https://c
 
 ## Javascript
 
-## CSS Comb (Deprecated)
-
-CSS comb is an extension for VS Code to beautify the css and rearrange it with some rules.
-To enable, you need to install it, search 'csscomb'.
-then you need to configure it. To do that, copy the csscomb.json file and paste it in the settings.json file of VS Code.
-
-Then when you will save your scss or sass file it will beautify it without effort.
+For Javascript we use the [ModuJs library](https://github.com/modularorg/modularjs) from Modularorg to use classes as modules, and have an easier way to manage components
 
 ## SCSS Lint
 
@@ -46,5 +42,3 @@ yarn add global eslint
 Then, Eslint will search a config file (.eslintrc.yml) and trim all js files with the configuration.
 
 ## Todo
-
-- See to implement [stylelint-order](https://github.com/hudochenkov/stylelint-order)

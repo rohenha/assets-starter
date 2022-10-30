@@ -1,0 +1,45 @@
+[aria-busy="true"] {
+  cursor: progress;
+}
+
+[aria-controls] {
+  cursor: pointer;
+}
+
+[aria-disabled] {
+  cursor: default;
+}
+
+/**
+* Control visibility without affecting flow.
+*/
+
+.is-visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.is-invisible {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/**
+* Completely remove from the flow and screen readers.
+*/
+
+.is-hidden {
+  @include u-hidden;
+}
+
+@media not print {
+  .-isHidden\@screen {
+    @include u-hidden;
+  }
+}
+
+@media print {
+  .-isHidden\@print {
+    @include u-hidden;
+  }
+}
