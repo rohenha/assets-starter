@@ -103,16 +103,17 @@ export default class Website extends mmodule {
     }
   }
 
-  enter({ next }) {
-    this.call('update', next.container, 'app')
-    this.setModulesFunctions()
-  }
-
-  afterEnter({ current }) {
+  // eslint-disable-next-line class-methods-use-this
+  enter({ current }) {
     if (current.container) {
       current.container.remove()
     }
     window.scrollTo(0, 0)
+  }
+
+  afterEnter({ next }) {
+    this.call('update', next.container, 'app')
+    this.setModulesFunctions()
     this.updateModules = true
     this.resize(true)
   }
