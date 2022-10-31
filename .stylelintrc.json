@@ -18,10 +18,10 @@
     "function-comma-space-after": "always",
 		"color-function-notation": "legacy",
 		"alpha-value-notation": ["percentage", {
-			"exceptProperties": ["opacity"] 
+			"exceptProperties": ["opacity"]
 		}],
     "order/properties-alphabetical-order": null,
-		"scss/at-rule-no-unknown": [ true, { 
+		"scss/at-rule-no-unknown": [ true, {
 			"ignoreAtRules": ["svg-load"]
 		}],
 		"max-nesting-depth": [5, {}],
@@ -46,8 +46,8 @@
 					"name": "media"
 				}
 			],
-			{ 
-        "severity": "warning" 
+			{
+        "severity": "warning"
       }
 		],
 		"order/properties-order": [

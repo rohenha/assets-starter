@@ -1,5 +1,6 @@
 .m-pagination{
   margin-top: 6rem;
+
   .a-button {
     flex-shrink: 0;
   }
@@ -12,21 +13,25 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
       span {
-        color: clr(primary);
+        color: var(--cprimary);
+
         &::after {
-          background-color: clr(primary);
-        } 
+          background-color: var(--cprimary);
+        }
       }
+
       &:not(:last-child) {
         margin-right: 1rem;
+
         &::after {
           content: "";
           display: block;
           width: .4rem;
           height: .4rem;
           margin-left: 1rem;
-          background-color: clr(secondary);
+          background-color: var(--csecondary);
         }
       }
     }

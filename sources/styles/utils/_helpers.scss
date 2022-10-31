@@ -28,7 +28,6 @@
       $c_name: nth($color, 1);
       $c_hex: nth($color, 2);
       @include selector('.text-#{$c_name}', $bp_v) {
-
         &,
         p,
         a:not(.button) {
@@ -50,8 +49,8 @@
 }
 
 .text-white a:not(.button) {
-  border-color: clr(white);
-  color: clr(white) !important;
+  border-color: var(--cwhite);
+  color: var(--cwhite) !important;
 }
 
 //  Ratio

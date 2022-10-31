@@ -5,8 +5,8 @@
   width: 100%;
   min-height: 60rem;
   padding: 15rem 0;
-  background-color: clr(primary);
-  color: clr(white);
+  background-color: var(--cprimary);
+  color: var(--cwhite);
 
   &__content {
     position: relative;
@@ -44,10 +44,12 @@
   @media #{$lg} {
     &__content {
       width: col(18);
+
       &.-center {
         margin-left: col(7);
         text-align: center;
       }
+
       &.-right {
         margin-left: col(12);
         text-align: right;

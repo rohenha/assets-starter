@@ -6,16 +6,20 @@
 
   // Animations
   --anim-duration: .25s;
-  --anim-easing: cubic-bezier(.55, 0, .1, 1);
+  --anim-easing: #{$p1easeinout};
 
   // Spaces
   --vr: 3rem;
 
   // Grid
-  --cols: 24;
+  --gwidth: 144rem;
+  --gcols: 32;
+  --ggap: 3rem;
 
   // Button
   --btnp: 1.2rem 1.2rem;
+  --btnbr: 0;
+  --btnb: .2rem;
 
   // Colors
   @each $name, $color in $colors {

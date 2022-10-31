@@ -7,14 +7,14 @@
   // &__input {
   //   width: 100%;
   //   padding: 2.8rem 2.5rem 1.5rem;
-  //   border: 1px solid clr(cgray);
+  //   border: 1px solid var(--cgray);
   //   border-radius: 5rem;
   //   background-color: inherit;
   //   font-family: var(--font-regular);
   //   appearance: none;
 
   //   &:not([aria-disabled="true"]):focus {
-  //     border-color: clr(cblack);
+  //     border-color: var(--cblack);
   //     outline: none;
   //   }
   // }
@@ -35,8 +35,8 @@
 
   // &.-error {
   //   .a-inputtext__input {
-  //     border-color: clr(alert);
-  //     color: clr(alert);
+  //     border-color: var(--calert);
+  //     color: var(--calert);
   //   }
   // }
 
@@ -45,7 +45,7 @@
   //     &.-hover,
   //     &:hover {
   //       &:not([aria-disabled="true"]):not(:focus) {
-  //         border-color: darken(clr(cgray), 10%);
+  //         border-color: darken(var(--cgray), 10%);
   //       }
   //     }
   //   }

@@ -1,0 +1,1 @@
+module.exports = "precision highp float;\n#define GLSLIFY 1\n\nuniform vec3 uColor;\n\nvarying vec2 vUv;\n\nvoid main() {\n  gl_FragColor = vec4(uColor.xyz, 1.);\n}\n";

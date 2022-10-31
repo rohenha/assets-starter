@@ -18,9 +18,13 @@ export default class Accordeon extends mmodule {
 
   resize() {
     const content = this.$('content')[0]
+    const scroll = this.$('scroll')[0]
+
     this.config.height = content.offsetHeight
-    const duration = (this.config.height * 1) / 600
-    this.config.duration = Math.min(Math.max(duration, 0.7), 3)
+    let duration = (this.config.height * 1) / 600
+    duration = Math.min(Math.max(duration, 0.7), 3)
+
+    scroll.style.setProperty('--atransition', `${duration}s`)
   }
 
   toggle() {
@@ -36,21 +40,19 @@ export default class Accordeon extends mmodule {
 
     const scroll = this.$('scroll')[0]
     const button = this.$('button')[0]
+    const buttonText = this.$('buttonText')[0]
+
     let height = 0
 
     button.setAttribute('aria-expanded', this.state)
 
     if (this.state) {
-      height = this.config.height
+      height = scroll.scrollHeight
+      buttonText.innerText = buttonText.dataset.close
+    } else {
+      buttonText.innerText = buttonText.dataset.open
     }
 
-    // gsap.to(scroll, {
-    //   onComplete: () => {
-    //     this.call('update', null, 'Scroll')
-    //   },
-    //   duration: this.config.duration,
-    //   ease: Power2.easeInOut,
-    //   height
-    // })
+    scroll.style.setProperty('--heightscroll', `${height}px`)
   }
 }

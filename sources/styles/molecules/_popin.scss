@@ -18,7 +18,7 @@
     z-index: 0;
     width: 100%;
     height: 100%;
-    background: rgba(clr(cblack), .6);
+    background: rgba(var(--cblack), .6);
     opacity: 0;
     cursor: pointer;
     transition: opacity .3s ease-in-out .3s;
@@ -37,7 +37,7 @@
     max-height: calc(100vh - 3rem);
     padding: 30px;
     border-radius: 4px;
-    background-color: clr(white);
+    background-color: var(--cwhite);
     opacity: 0;
     cursor: initial;
     transition: opacity .3s ease-in-out;
@@ -73,6 +73,7 @@
   &[aria-hidden="false"] {
     visibility: visible;
     transition: .1s ease-in-out;
+
     .m-popin__overlay {
       opacity: 1;
       transition: opacity .3s ease-in-out .1s;

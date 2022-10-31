@@ -1,6 +1,7 @@
 
 //  V A R I A B L E S
 //  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$font-size-base: 16;
 
 //  Grid
 //  ───────────────────────────────────
@@ -15,12 +16,12 @@ $column-width: 4.5rem;
 // width: $container-width,
 // columns: $total-columns,
 // gutter: $column-gutter,
-// colorcolumnodd: rgb(clr(cblack) .2),
-// colorcolumneven: rgb(clr(cblack) .1),
-// colorgutter: rgb(clr(cblack) .05),
+// colorcolumnodd: rgb(var(--cblack) .2),
+// colorcolumneven: rgb(var(--cblack) .1),
+// colorgutter: rgb(var(--cblack) .05),
 // vertical: false,
 // vertical-size: $vr,
-// colorvodd: rgb(clr(cblack) .1),
+// colorvodd: rgb(var(--cblack) .1),
 // colorveven: transparent);
 
 //  Breakpoints

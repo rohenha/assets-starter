@@ -1,0 +1,68 @@
+.g-row {
+  // @each $bp in $bps {
+  //   $key: nth($bp, 1);
+  //   $value: nth($bp, 2);
+
+  //   @media #{$key} {
+  //     @include selector('.half', "-#{$value}") {
+  //       grid-template-columns: repeat(2, col(($total-columns - 2) / 2));
+  //       gap: var(--vr) col(2);
+  //     }
+
+  //     @include selector('.third', "-#{$value}") {
+  //       grid-template-columns: col(($total-columns - 2) / 3 * 2) col(($total-columns - 2) / 3);
+  //       gap: var(--vr) col(2);
+  //     }
+
+  //     @include selector('.fourth', "-#{$value}") {
+  //       grid-template-columns: repeat(4, col(($total-columns - 3) / 4));
+  //       gap: var(--vr) col(1);
+  //     }
+  //   }
+  // }
+
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat($total-columns, 1fr);
+  width: 100%;
+  max-width: $row-width;
+  margin: 0 auto;
+
+  &.-xl {
+    max-width: 100%;
+  }
+
+  &.-c1 {
+    grid-template-columns: 1fr;
+    gap: var(--vr) 0;
+  }
+
+  &.-c2 {
+    grid-template-columns: repeat(2, col(($total-columns - 2) / 2));
+    gap: var(--vr) col(2);
+
+  }
+
+  &.-c3 {
+    grid-template-columns: col(($total-columns - 2) / 3 * 2) col(($total-columns - 2) / 3);
+    gap: var(--vr) col(2);
+  }
+
+  &.-c3r {
+    grid-template-columns: col(($total-columns - 2) / 3) col(($total-columns - 2) / 3 * 2);
+    gap: var(--vr) col(2);
+  }
+
+  &.-c4 {
+    grid-template-columns: repeat(4, col(($total-columns - 3) / 4));
+    gap: var(--vr) col(1);
+  }
+
+  &.-vcenter {
+    align-items: center;
+  }
+
+  &.-vbottom {
+    align-items: flex-end;
+  }
+}

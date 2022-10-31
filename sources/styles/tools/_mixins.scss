@@ -5,25 +5,28 @@
 
 // @function str-replace($string, $search, $replace: '') {
 //   $index: str-index($string, $search);
-  
+
 //   @if $index {
 //     @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
 //   }
-  
+
 //   @return $string;
 // }
 
 @mixin selector($selector, $mq) {
   $new-sel: str-insert($selector, $mq + '-', 2);
+  $new-sel-mob: str-insert($selector, '-', 2);
   $placeholder: str-replace($selector, '.', '%');
 
   // $placeholder: str-replace($placeholder, '-', '_');
-  $sel: '';
+  $sel: '#{$new-sel}';
 
   @if $mq == 'sm' {
     $sel: '#{$selector}, #{$new-sel}';
-  } @else {
-    $sel: '#{$new-sel}';
+  }
+
+  @if $mq == '-sm' {
+    $sel: '#{$new-sel-mob}, #{$new-sel}';
   }
 
   #{$sel} {
@@ -33,6 +36,10 @@
 
 @function col($nbr) {
   @return (100% * ($nbr * ($column-width + $column-gutter))) / $row-width;
+}
+
+@function subcol($nbr, $container) {
+  @return (100% * ($nbr / $container));
 }
 
 //
@@ -131,4 +138,8 @@
 
 @function clr($key) {
   @return map-get($colors, $key);
+}
+
+@mixin gridp($width, $offset) {
+  grid-column: #{$offset} / #{$offset + $width};
 }

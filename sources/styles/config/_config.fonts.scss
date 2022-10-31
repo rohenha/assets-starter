@@ -1,3 +1,5 @@
+// Example
+
 // @font-face {
 //   font-family: 'Futura PT Cond';
 //   font-style: normal;
@@ -8,6 +10,19 @@
 //       url('/assets/fonts/futura/FuturaPTCond-Medium.woff') format('woff'),
 //       url('/assets/fonts/futura/FuturaPTCond-Medium.ttf') format('truetype');
 // }
+
+// Exapmple Variable
+// @include font-face(
+//   "Clash",
+//   "assets/fonts/clash/ClashDisplay-Variable",
+//   ("woff2var", "woff2supvar", "woff")
+// ) {
+//   font-weight: 100 1000;
+//   font-style: normal;
+//   font-stretch: 25% 151%;
+//   font-display: swap;
+// }
+
 $assets-path: "../" !default;
 
 @include font-face(

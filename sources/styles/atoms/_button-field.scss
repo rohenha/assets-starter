@@ -3,9 +3,11 @@
     overflow: hidden;
     width: 1.2rem;
     height: 1.2rem;
+
     use {
-      fill: clr(secondary);
+      fill: var(--cprimary);
     }
+
     path{
       fill: inherit;
     }
@@ -14,6 +16,7 @@
   &[aria-disabled] {
     opacity: .7;
     cursor: not-allowed;
+
     > * {
       cursor: not-allowed;
     }

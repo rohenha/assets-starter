@@ -6,7 +6,7 @@
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
-  background-color: clr(primary);
+  background-color: var(--cprimary);
   transform: translate(-50%, -50%);
 
   &::before {
@@ -19,14 +19,15 @@
     height: 0;
     border-width: 9px 0 9px 13px;
     border-style: solid;
-    border-color: transparent transparent transparent clr(secondary);
+    border-color: transparent transparent transparent var(--csecondary);
     transform: translate(-50%, -50%);
   }
 
   &.-hover {
-    background-color: clr(secondary);
+    background-color: var(--csecondary);
+
     &::before {
-      border-color: transparent transparent transparent clr(primary);
+      border-color: transparent transparent transparent var(--cprimary);
     }
   }
 }
@@ -46,7 +47,7 @@
     display: block;
     width: 100%;
     height: 1px;
-    background-color: clr(primary);
+    background-color: var(--cprimary);
   }
 
   &::before {
