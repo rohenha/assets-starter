@@ -14,6 +14,7 @@ package-lock.json
 
 # Assets
 # ---------------
-/assets
+/views/assets
+/views/sprite.html
 
 .htaccess

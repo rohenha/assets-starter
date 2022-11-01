@@ -12,8 +12,10 @@
   --vr: 3rem;
 
   // Grid
-  --gwidth: 144rem;
-  --gcols: 32;
+  --gwidth: #{$row-width};
+  --gcols: #{$total-columns};
+  --ggutter: #{$column-gutter};
+  --gpadding: #{$column-padding};
   --ggap: 3rem;
 
   // Button

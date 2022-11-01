@@ -7,10 +7,6 @@ const open = require('../utils/open-file');
 module.exports = (data) => {
   console.log('')
   console.log(`${colors.bgGrey(' SCSS ')} ${colors.grey(`Création du module ${colors.white(data.moduleName)}`)}`)
-  // if(!filename || !type || !data.folders.includes(type)) {
-  //   console.log(`${colors.bgRed(' SCSS ')} ${colors.red(`Le module ${colors.brightGreen(moduleName)} n\'a pas pu être créé`)}`)
-  //   return false;
-  // }
   const contentScss = `.${data.className} {
 
 }

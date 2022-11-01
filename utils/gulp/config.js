@@ -15,10 +15,14 @@ module.exports = {
     isProd: argv.env === 'prod'
   },
   src: './sources',
-  dist: './assets',
+  dist: './views/assets',
+  server: {
+    url: 'starter.vm',
+    port: 3000
+  },
   sprite: {
-    dist: './assets',
-    name: 'sprite.svg',
+    dist: './views',
+    name: 'sprite.html',
     mode: {
       symbol: {
         sprite: 'symbols',
@@ -32,6 +36,6 @@ module.exports = {
     }
   },
   twig: [
-    './project/views'
+    './views'
   ]
 }

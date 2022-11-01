@@ -1,31 +1,57 @@
+/* stylelint-disable function-comma-space-after */
+
+html {
+  &.-grid {
+    body {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 50%;
+        display: block;
+        width: calc(100% - #{$column-padding * 2});
+        max-width: #{$row-width - $column-padding * 2};
+        height: 100%;
+        margin: 0 auto;
+
+        // opacity: .5;
+        background: repeating-linear-gradient(
+          90deg,
+          $colorcolumnodd,
+          $colorcolumnodd calc(#{$colw} - #{$column-gutter}),
+          $colorgutter  calc(#{$colw} - #{$column-gutter}),
+          $colorgutter #{$colw},
+          $colorcolumneven #{$colw},
+          $colorcolumneven calc(#{$colw} * 2 - #{$column-gutter}),
+          $colorgutter calc(#{$colw} * 2 - #{$column-gutter}),
+          $colorgutter calc(#{$colw} * 2),
+        );
+
+        // background: repeating-linear-gradient(
+        //   90deg,
+        //   $colorgutter,
+        //   $colorgutter $colg,
+        //   $colorcolumneven $colg,
+        //   $colorcolumneven $colw + $colg,
+        //   $colorgutter $colw + $colg,
+        //   $colorgutter $colw + ($colg * 2)
+        // );
+        pointer-events: none;
+        transform: translate(-50%, 0);
+      }
+    }
+  }
+}
+
 .g-row {
-  // @each $bp in $bps {
-  //   $key: nth($bp, 1);
-  //   $value: nth($bp, 2);
-
-  //   @media #{$key} {
-  //     @include selector('.half', "-#{$value}") {
-  //       grid-template-columns: repeat(2, col(($total-columns - 2) / 2));
-  //       gap: var(--vr) col(2);
-  //     }
-
-  //     @include selector('.third', "-#{$value}") {
-  //       grid-template-columns: col(($total-columns - 2) / 3 * 2) col(($total-columns - 2) / 3);
-  //       gap: var(--vr) col(2);
-  //     }
-
-  //     @include selector('.fourth', "-#{$value}") {
-  //       grid-template-columns: repeat(4, col(($total-columns - 3) / 4));
-  //       gap: var(--vr) col(1);
-  //     }
-  //   }
-  // }
-
   position: relative;
   display: grid;
   grid-template-columns: repeat($total-columns, 1fr);
-  width: 100%;
-  max-width: $row-width;
+  gap: var(--vr) $column-gutter;
+  width: calc(100% - #{$column-padding * 2});
+  max-width: #{$row-width - $column-padding * 2};
   margin: 0 auto;
 
   &.-xl {
@@ -34,28 +60,6 @@
 
   &.-c1 {
     grid-template-columns: 1fr;
-    gap: var(--vr) 0;
-  }
-
-  &.-c2 {
-    grid-template-columns: repeat(2, col(($total-columns - 2) / 2));
-    gap: var(--vr) col(2);
-
-  }
-
-  &.-c3 {
-    grid-template-columns: col(($total-columns - 2) / 3 * 2) col(($total-columns - 2) / 3);
-    gap: var(--vr) col(2);
-  }
-
-  &.-c3r {
-    grid-template-columns: col(($total-columns - 2) / 3) col(($total-columns - 2) / 3 * 2);
-    gap: var(--vr) col(2);
-  }
-
-  &.-c4 {
-    grid-template-columns: repeat(4, col(($total-columns - 3) / 4));
-    gap: var(--vr) col(1);
   }
 
   &.-vcenter {

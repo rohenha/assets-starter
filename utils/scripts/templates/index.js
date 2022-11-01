@@ -34,33 +34,29 @@ const questions = [
     name: 'sass',
     message: 'Intégrer partie SASS ?'
   },
+];
+
+const questionsJS = [
   {
     type: 'confirm',
     name: 'module',
     message: 'Le fichier JS est-il un module ?'
   },
-];
+]
 
 console.log('')
 console.log(colors.blue('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'))
 console.log(`${colors.bgBlue(' INITIALISATION ')} ${colors.white('Création d\'un module')}`)
 console.log(colors.blue('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'))
 console.log('')
- 
-prompt(questions).then((data) => {
-  data.filename = slugify(data.filename);
-  data.moduleName = toModuleName(data.filename);
-  data.className = `${data.type[0].toLowerCase()}-${data.moduleName}`;
-  if(!data.filename || !data.type) {
-    console.log(`${colors.bgRed(' ERREUR ')} ${colors.red(`Le module ${colors.grey(data.moduleName)} n\'a pas pu être créé`)}`)
-    return false;
+
+const createContent = (data) => {
+  if(data.js) {
+    createJS(data);
   }
 
   if(data.html) {
     createHTML(data);
-  }
-  if(data.js) {
-    createJS(data);
   }
   if(data.sass) {
     createSASS(data);
@@ -70,4 +66,24 @@ prompt(questions).then((data) => {
   console.log(`${colors.bgGreen(' SUCCES ')} ${colors.white(`Le module ${colors.green(data.moduleName)} a bien été créé`)}`)
   console.log(colors.green('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'))
   console.log(colors.green(''))
+}
+
+prompt(questions).then((data) => {
+  data.filename = slugify(data.filename);
+  data.moduleName = toModuleName(data.filename);
+  data.className = `${data.type[0].toLowerCase()}-${data.moduleName}`;
+  if(!data.filename || !data.type) {
+    console.log(`${colors.bgRed(' ERREUR ')} ${colors.red(`Le module ${colors.grey(data.moduleName)} n\'a pas pu être créé`)}`)
+    return false;
+  }
+
+  if(data.js) {
+    prompt(questionsJS).then((dataJS) => {
+      data.module = dataJS.module
+      createContent(data)
+    })
+  } else {
+    createContent(data)
+  }
+
 });

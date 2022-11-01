@@ -35,7 +35,13 @@
 }
 
 @function col($nbr) {
-  @return (100% * ($nbr * ($column-width + $column-gutter))) / $row-width;
+  // @return calc(#{$nbr} * #{$colw});
+
+  // @return $nbr / $total-columns * 100%;
+
+  // @return calc(#{$percent} - #{$column-gutter / 2});
+
+  @return (100% * ($nbr * ($column-width - $column-gutter))) / $row-width;
 }
 
 @function subcol($nbr, $container) {

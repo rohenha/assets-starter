@@ -11,15 +11,15 @@ module.exports = (data) => {
   //   console.log(`${colors.bgRed(' JS ')} ${colors.red(`Le module ${colors.brightGreen(data.moduleName)} n\'a pas pu être créé`)}`)
   //   return false;
   // }
-  
+
   const moduleNameJs = data.moduleName[0].toUpperCase() + data.moduleName.substring(1)
   const type = data.module ? "modules" : data.module;
 
   let content = "";
   if (data.module) {
-    content = `import { module } from 'modujs'
+    content = `import { module as mmodule } from 'modujs'
 
-export default class ${moduleNameJs} extends module {
+export default class ${moduleNameJs} extends mmodule {
   constructor(m) {
     super(m)
     this.events = {}

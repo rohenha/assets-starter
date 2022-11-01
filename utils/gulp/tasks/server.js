@@ -2,6 +2,9 @@
 ►►► gulp/tasks/server
 ────────────────────────────────────────────────────────── */
 const browserSync = require('browser-sync')
+
+/* ─────────────────────────────────────────────────────── */
+const config = require('../config')
 /* ─────────────────────────────────────────────────────── */
 
 let server = {}
@@ -11,11 +14,11 @@ server.instance = browserSync.create('server')
 server.proxy = (done) => {
   server.instance.init(
     {
-      proxy: 'troaby.vm',
+      proxy: config.server.url,
       baseDir: './',
       logLevel: 'silent',
       open: false,
-      port: 3000
+      port: config.server.port
     }
   )
   done()

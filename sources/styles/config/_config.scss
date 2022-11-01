@@ -5,24 +5,24 @@ $font-size-base: 16;
 
 //  Grid
 //  ───────────────────────────────────
-$row-width: 144rem;
+$row-width: 104rem;
 $container-width: 100%;
-$total-columns: 32;
-$column-gutter: 0;
-$column-width: 4.5rem;
+$total-columns: 24;
+/* stylelint-disable-next-line length-zero-no-unit */
+$column-gutter: 1rem;
+/* stylelint-disable-next-line length-zero-no-unit */
+$column-padding: 0rem;
+$column-width: 6rem;
+$debgrid: true;
+$colorcolumnodd: rgba(black, .2);
+$colorcolumneven: rgba(black, .1);
+$colorgutter: rgba(black, .05);
 
-// $debgrid: (horizontal: false,
-// maxwidth: $row-width,
-// width: $container-width,
-// columns: $total-columns,
-// gutter: $column-gutter,
-// colorcolumnodd: rgb(var(--cblack) .2),
-// colorcolumneven: rgb(var(--cblack) .1),
-// colorgutter: rgb(var(--cblack) .05),
-// vertical: false,
-// vertical-size: $vr,
-// colorvodd: rgb(var(--cblack) .1),
-// colorveven: transparent);
+// $colw: (($row-width - ($column-gutter * $total-columns)) / $total-columns) * 100 / $row-width * 1%;
+// $colg: ($column-gutter * 100 / $row-width * 1%) / 2;
+
+$colratio: 1 + (1 - ($row-width - $column-gutter) * 100 / $row-width / 100);
+$colw: #{1 / $total-columns * 100%};
 
 //  Breakpoints
 //  ───────────────────────────────────
