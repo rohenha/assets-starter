@@ -19,11 +19,6 @@ export default class extends mmodule {
     this.scroll.on('call', this.onCall.bind(this))
     this.trottleScroll = throttle(this.onScroll.bind(this), 100)
     this.scroll.on('scroll', this.trottleScroll)
-    // this.update()
-    // setTimeout(() => {
-    //   console.log('timeout')
-    //   this.update()
-    // }, 4000)
   }
 
   onCall(func, way, obj) {

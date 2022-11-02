@@ -1,4 +1,5 @@
 /* stylelint-disable function-comma-space-after */
+$colw: #{1 / $total-columns * 100%};
 
 html {
   &.-grid {
@@ -10,6 +11,7 @@ html {
         position: fixed;
         top: 0;
         left: 50%;
+        z-index: 800;
         display: block;
         width: calc(100% - #{$column-padding * 2});
         max-width: #{$row-width - $column-padding * 2};
@@ -28,16 +30,7 @@ html {
           $colorgutter calc(#{$colw} * 2 - #{$column-gutter}),
           $colorgutter calc(#{$colw} * 2),
         );
-
-        // background: repeating-linear-gradient(
-        //   90deg,
-        //   $colorgutter,
-        //   $colorgutter $colg,
-        //   $colorcolumneven $colg,
-        //   $colorcolumneven $colw + $colg,
-        //   $colorgutter $colw + $colg,
-        //   $colorgutter $colw + ($colg * 2)
-        // );
+        background-size: calc(100% + #{$column-gutter}) 100%;
         pointer-events: none;
         transform: translate(-50%, 0);
       }

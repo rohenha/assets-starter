@@ -1,7 +1,13 @@
+import Scroll from '../modules/_scroll'
+
 export { default as Website } from '../modules/_website'
 export { default as Axeptio } from '../modules/_axeptio'
 export { default as Menu } from '../modules/_menu'
-export { default as Scroll } from '../modules/_scroll'
+// const varTest = true
+// if (varTest) {
+//   // export { default as Scroll } from '../modules/_scroll'
+// }
+exports.Scroll = Scroll
 export { default as Slider } from '../modules/_slider'
 export { default as Accordeon } from '../modules/_accordeon'
 export { default as Form } from '../modules/_form'
