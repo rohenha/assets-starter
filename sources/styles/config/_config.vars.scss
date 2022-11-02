@@ -21,7 +21,6 @@
 
   // Colors
   @each $name, $color in $colors {
-    /* stylelint-disable-next-line custom-property-pattern */
     --c#{"" + $name}: #{$color};
   }
 }

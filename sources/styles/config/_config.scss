@@ -9,12 +9,12 @@ $font-size-base: 16;
 $row-width: 144rem;
 $container-width: 100%;
 $total-columns: 24;
-$column-gutter: 0rem;
-$column-padding: 2rem;
+$column-gutter: 1rem;
+$column-padding: 0rem;
 $column-width: 6rem;
 $debgrid: true;
 $colorcolumnodd: rgba(black, .2);
-$colorcolumneven: rgba(black, .1);
+$colorcolumneven: rgba(black, .12);
 $colorgutter: rgba(black, .05);
 
 //  Breakpoints
