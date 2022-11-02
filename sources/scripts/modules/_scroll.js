@@ -13,7 +13,7 @@ export default class extends mmodule {
       tablet: {
         breakpoint: 768,
       },
-      reloadOnContextChange: true,
+      reloadOnContextChange: false,
     })
 
     this.scroll.on('call', this.onCall.bind(this))

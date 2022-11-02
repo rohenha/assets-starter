@@ -1,6 +1,4 @@
-//
 //  M I X I N S
-//
 //  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 // @function str-replace($string, $search, $replace: '') {
@@ -48,12 +46,9 @@
   @return (100% * ($nbr / $container));
 }
 
-//
 // Applies accessible hiding to the current element.
-//
 // @param  {Boolean} $important [true] - Whether the visibility is important.
 // @output Properties for removing the element from the document flow.
-//
 @mixin u-accessibly-hidden($important: true) {
   $important: important($important);
 
@@ -84,15 +79,11 @@
   }
 }
 
-//
 // Vertically-center the direct descendants of the current element.
-//
 // Centering is achieved by displaying children as inline-blocks. Any whitespace
 // between elements is nullified by redefining the font size of the container
 // and its children.
-//
 // @output `font-size`, `display`, `vertical-align`
-//
 @mixin o-vertical-center {
   font-size: 0;
 
@@ -110,15 +101,11 @@
   }
 }
 
-//
 // Hide the current element from all.
-//
 // The element will be hidden from screen readers and removed from the document flow.
-//
 // @link   http://juicystudio.com/article/screen-readers-display-none.php
 // @param  {Boolean} $important [true] - Whether the visibility is important.
 // @output `display`, `visibility`
-//
 @mixin u-hidden($important: true) {
   $important: important($important);
 
@@ -126,15 +113,11 @@
   visibility: hidden $important;
 }
 
-//
 // Show the current element for all.
-//
 // The element will be accessible from screen readers and visible in the document flow.
-//
 // @param  {String}  $display   [block] - The rendering box used for the element.
 // @param  {Boolean} $important [true]  - Whether the visibility is important.
 // @output `display`, `visibility`
-//
 @mixin u-shown($display: block, $important: true) {
   $important: important($important);
 

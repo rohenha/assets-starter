@@ -1,3 +1,4 @@
+/* stylelint-disable length-zero-no-unit */
 
 //  V A R I A B L E S
 //  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -8,9 +9,7 @@ $font-size-base: 16;
 $row-width: 144rem;
 $container-width: 100%;
 $total-columns: 24;
-/* stylelint-disable-next-line length-zero-no-unit */
-$column-gutter: 1rem;
-/* stylelint-disable-next-line length-zero-no-unit */
+$column-gutter: 0rem;
 $column-padding: 2rem;
 $column-width: 6rem;
 $debgrid: true;

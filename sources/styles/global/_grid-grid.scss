@@ -14,11 +14,11 @@ html {
         z-index: 800;
         display: block;
         width: calc(100% - #{$column-padding * 2});
-        max-width: #{$row-width - $column-padding * 2};
+
+        // max-width: #{$row-width - $column-padding * 2};
+        max-width: calc(var(--gwidth) - #{$column-padding * 2});
         height: 100%;
         margin: 0 auto;
-
-        // opacity: .5;
         background: repeating-linear-gradient(
           90deg,
           $colorcolumnodd,
@@ -44,7 +44,9 @@ html {
   grid-template-columns: repeat($total-columns, 1fr);
   gap: var(--vr) $column-gutter;
   width: calc(100% - #{$column-padding * 2});
-  max-width: #{$row-width - $column-padding * 2};
+
+  // max-width: #{$row-width - $column-padding * 2};
+  max-width: calc(var(--gwidth) - #{$column-padding * 2});
   margin: 0 auto;
 
   &.-xl {

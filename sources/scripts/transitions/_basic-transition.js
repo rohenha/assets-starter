@@ -11,7 +11,7 @@ export default {
     })
   },
 
-  afterEnter(data) {
+  afterEnter() {
     const tl = anime.timeline({
       easing: 'easeInOutCubic',
       duration: 1200,

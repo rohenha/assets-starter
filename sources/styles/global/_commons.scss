@@ -6,6 +6,7 @@ html {
   scroll-behavior: initial;
   font-variant-numeric: lining-nums;
   -webkit-font-smoothing: antialiased;
+  /* stylelint-disable-next-line property-no-unknown */
   font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   text-size-adjust: 100%;
@@ -41,6 +42,7 @@ hr {
   border-top: 0;
 }
 
+/* stylelint-disable-next-line selector-class-pattern */
 .dg.ac {
   z-index: 5 !important;
 }
@@ -66,7 +68,7 @@ hr {
     }
 
     &:nth-child(2) {
-      @include gridp(8, 14);
+      @include gridp(8, 13);
 
       height: 70%;
     }

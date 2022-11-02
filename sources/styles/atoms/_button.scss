@@ -1,9 +1,12 @@
+$btnbr: 0;
+$btnb: .2rem;
+
 .a-button{
   position: relative;
   display: inline-block;
   overflow: hidden;
   padding: 1.7rem 2.5rem;
-  border-radius: var(--btnbr);
+  border-radius: $btnbr;
   backface-visibility: hidden;
   mask-image: radial-gradient(white, black);
 
@@ -12,7 +15,7 @@
     content: "";
     position: absolute;
     display: block;
-    border-radius: var(--btnbr);
+    border-radius: $btnbr;
   }
 
   &::before {
@@ -21,7 +24,7 @@
     z-index: 1;
     width: calc(100% - 1px);
     height: calc(100% - 1px);
-    border: var(--btnb) solid var(--cprimary);
+    border: $btnb solid var(--cprimary);
   }
 
   &::after {

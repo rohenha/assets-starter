@@ -2,7 +2,7 @@
   // Typos
   --font-regular: "Arial", sans-serif;
   --font-title: "Arial", sans-serif;
-  --fsize: 62.5%;
+  --fsize: #{100 / $font-size-base * 10%};
 
   // Animations
   --anim-duration: .25s;
@@ -13,15 +13,11 @@
 
   // Grid
   --gwidth: #{$row-width};
-  --gcols: #{$total-columns};
-  --ggutter: #{$column-gutter};
-  --gpadding: #{$column-padding};
-  --ggap: 3rem;
 
-  // Button
-  --btnp: 1.2rem 1.2rem;
-  --btnbr: 0;
-  --btnb: .2rem;
+  // --gcols: #{$total-columns};
+  // --ggutter: #{$column-gutter};
+  // --gpadding: #{$column-padding};
+  // --ggap: 3rem;
 
   // Colors
   @each $name, $color in $colors {
