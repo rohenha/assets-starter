@@ -1,37 +1,35 @@
 /* stylelint-disable function-comma-space-after */
-$colw: #{1 / $total-columns * 100%};
+@if $debgrid {
+  $colw: #{1 / $total-columns * 100%};
 
-html {
-  &.-grid {
-    body {
-      position: relative;
+  body {
+    position: relative;
 
-      &::after {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 50%;
-        z-index: 800;
-        display: block;
-        width: calc(100% - #{$column-padding * 2});
-        max-width: calc(var(--gwidth) - #{$column-padding * 2});
-        height: 100%;
-        margin: 0 auto;
-        background: repeating-linear-gradient(
-          90deg,
-          $colorcolumnodd,
-          $colorcolumnodd calc(#{$colw} - #{$column-gutter}),
-          $colorgutter  calc(#{$colw} - #{$column-gutter}),
-          $colorgutter #{$colw},
-          $colorcolumneven #{$colw},
-          $colorcolumneven calc(#{$colw} * 2 - #{$column-gutter}),
-          $colorgutter calc(#{$colw} * 2 - #{$column-gutter}),
-          $colorgutter calc(#{$colw} * 2),
-        );
-        background-size: calc(100% + #{$column-gutter}) 100%;
-        pointer-events: none;
-        transform: translate(-50%, 0);
-      }
+    &::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 50%;
+      z-index: 800;
+      display: block;
+      width: calc(100% - #{$column-padding * 2});
+      max-width: calc(var(--gwidth) - #{$column-padding * 2});
+      height: 100%;
+      margin: 0 auto;
+      background: repeating-linear-gradient(
+        90deg,
+        $colorcolumnodd,
+        $colorcolumnodd calc(#{$colw} - #{$column-gutter}),
+        $colorgutter  calc(#{$colw} - #{$column-gutter}),
+        $colorgutter #{$colw},
+        $colorcolumneven #{$colw},
+        $colorcolumneven calc(#{$colw} * 2 - #{$column-gutter}),
+        $colorgutter calc(#{$colw} * 2 - #{$column-gutter}),
+        $colorgutter calc(#{$colw} * 2),
+      );
+      background-size: calc(100% + #{$column-gutter}) 100%;
+      pointer-events: none;
+      transform: translate(-50%, 0);
     }
   }
 }
@@ -42,8 +40,6 @@ html {
   grid-template-columns: repeat($total-columns, 1fr);
   gap: var(--vr) $column-gutter;
   width: calc(100% - #{$column-padding * 2});
-
-  // max-width: #{$row-width - $column-padding * 2};
   max-width: calc(var(--gwidth) - #{$column-padding * 2});
   margin: 0 auto;
 
