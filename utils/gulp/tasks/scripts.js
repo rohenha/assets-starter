@@ -4,8 +4,8 @@
 const gulp = require('gulp')
 const plugins = require('gulp-load-plugins')()
 const server = require('browser-sync').get('server')
-var replace = require('gulp-string-replace')
 const babelify = require('babelify')
+const preprocess = require("gulp-preprocess")
 /* ─────────────────────────────────────────────────────── */
 const config = require('../config')
 /* ─────────────────────────────────────────────────────── */
@@ -15,8 +15,8 @@ const scripts = {}
 scripts.compiler = () => gulp
     .src([
       `${config.src}/scripts/site.js`,
-      // `${config.src}/scripts/workers/ogl-controller.js`,
     ])
+    .pipe(preprocess())
     .pipe(
       plugins.if(
         config.env.isDev,
@@ -39,16 +39,6 @@ scripts.compiler = () => gulp
         }
       )
     )
-    // .pipe(replace(/process[.]env[.](.\w*)/g, (match, p1) => {
-    //   for (const key in process.env) {
-    //     if (Object.hasOwnProperty.call(process.env, key)) {
-    //       if (p1 === key) {
-    //         return `"${process.env[key]}"`;
-    //       }
-    //     }
-    //   }
-    //   return match;
-    // }))
     .pipe(
       plugins.if(
         config.env.isProd,
@@ -85,7 +75,7 @@ scripts.compiler = () => gulp
 scripts.watcher = () => {
   gulp
     .watch(
-      `${config.src  }/scripts/**/*.js`,
+      `${config.src}/scripts/**/*.js`,
       scripts.compiler
     )
 }

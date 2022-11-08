@@ -12,7 +12,8 @@ module.exports = {
   version: package.version,
   env: {
     isDev: argv.env === 'dev',
-    isProd: argv.env === 'prod'
+    isProd: argv.env === 'prod',
+    isDebug: argv.debug === 'true',
   },
   src: './sources',
   dist: './views/assets',

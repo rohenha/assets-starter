@@ -4,6 +4,10 @@
 import modular from 'modujs'
 import * as modules from './organisms/_modules'
 
+// @ifdef DEBUG
+console.log('debug')
+// @endif
+
 window.addEventListener('load', () => {
   const init = () => {
     console.log(

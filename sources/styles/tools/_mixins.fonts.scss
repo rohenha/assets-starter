@@ -51,14 +51,6 @@ $global-font-file-formats: "woff2", "woff" !default;
     $src: append($src, $format, comma);
   }
 
-  // @each $key, $values in $formats-map {
-  //   @if list-contains($file-formats, $key) {
-  //     $file-path: nth($values, 1);
-  //     $font-format: nth($values, 2);
-  //     $src: append($src, url("#{$assets-path}#{$file-path}") $font-format, comma);
-  //   }
-  // }
-
   @return $src;
 }
 

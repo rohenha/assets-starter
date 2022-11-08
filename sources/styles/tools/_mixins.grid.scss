@@ -1,0 +1,32 @@
+
+/// calculate col percent
+///
+/// @param {integer (unitless)} $col
+///   The number of col width
+/// @return {number (percent)} `col percent`.
+@function col($col) {
+  @return (100% * ($col * ($column-width - $column-gutter))) / $row-width;
+}
+
+/// calculate col percent in subrow
+///
+/// @param {integer (unitless)} $col
+///   The number of col width
+/// @param {integer (unitless)} $container
+///   The number of the subgrid
+/// @return {number (percent)} `col percent`.
+@function subcol($col, $container) {
+  @return (100% * ($col / $container));
+}
+
+/// render grid position of an element
+///
+/// @param {integer (unitless)} $width
+///   The width on the grid
+/// @param {integer (unitless)} $offset
+///   The offset on the grid
+/// @return {grid} `grid positon`.
+
+@mixin gridp($width, $offset) {
+  grid-column: #{$offset} / #{$offset + $width};
+}

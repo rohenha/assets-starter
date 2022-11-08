@@ -32,20 +32,6 @@
   }
 }
 
-@function col($nbr) {
-  // @return calc(#{$nbr} * #{$colw});
-
-  // @return $nbr / $total-columns * 100%;
-
-  // @return calc(#{$percent} - #{$column-gutter / 2});
-
-  @return (100% * ($nbr * ($column-width - $column-gutter))) / $row-width;
-}
-
-@function subcol($nbr, $container) {
-  @return (100% * ($nbr / $container));
-}
-
 // Applies accessible hiding to the current element.
 // @param  {Boolean} $important [true] - Whether the visibility is important.
 // @output Properties for removing the element from the document flow.
@@ -127,8 +113,4 @@
 
 @function clr($key) {
   @return map-get($colors, $key);
-}
-
-@mixin gridp($width, $offset) {
-  grid-column: #{$offset} / #{$offset + $width};
 }

@@ -1,15 +1,7 @@
-// import gsap, { Power3 } from 'gsap'
 import anime from 'animejs'
-// import { html } from '../utils/environment'
-// import loadImages from './_images'
 
 export default {
-  after() {
-    this.updatePercent({
-      loaded: 0,
-      toLoad: 1,
-    })
-  },
+  after() {},
 
   afterEnter() {
     const tl = anime.timeline({
@@ -60,7 +52,6 @@ export default {
       leave: this.leave.bind(this),
       name: this.name,
       once: this.once.bind(this),
-      updatePercent: this.updatePercent.bind(this),
     }
   },
 
@@ -85,11 +76,5 @@ export default {
       this.after()
       this.parent.after()
     })
-  },
-
-  updatePercent() {
-    // this.percent.innerHTML = `${Math.round(
-    //   (state.loaded / state.toLoad) * 100
-    // )}%`
   },
 }.invoke()

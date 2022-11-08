@@ -41,4 +41,56 @@ yarn add global eslint
 ```
 Then, Eslint will search a config file (.eslintrc.yml) and trim all js files with the configuration.
 
+## Gulp
+### Javascript
+- Gzip
+- Minimify
+### CSS
+- Sass Glob (import folder)
+- Minimify
+- PostCSS 
+  - Inline SVG
+  - Purge CSS
+  - Autoprefixer
+  - Remove comments
+  - Sourcemap
+
+### Server
+- Live reload
+
+### Sprite
+- Create Sprites
+
+### Views
+- Live reload
+
+
+### Images
+- Minimify
+- Create thumbnails ?
+
+### GLSL
+- Create Glsl files for JS
+
+### Assets
+- Copy assets
+
+## Vite
+- [Plugin for Eleventy and Vite](https://www.11ty.dev/docs/server-vite/)
+- [Checker for Es lint and Stylelint](https://github.com/fi3ework/vite-plugin-checker)
+- [Use GLSL files](https://github.com/UstymUkhman/vite-plugin-glsl)
+- [Generate critical style for inline](https://github.com/nystudio107/rollup-plugin-critical)
+- [Progress bar to see progress of build](https://github.com/jeddygong/vite-plugin-progress)
+- [Copy assets folder](https://github.com/mistjs/vite-plugin-copy-files)
+- [Compression for GZIP](https://github.com/nonzzz/vite-compression-plugin)
+- [Twig](https://github.com/vituum/vite-plugin-twig)
+- [Sprite SVG](https://github.com/meowtec/vite-plugin-svg-sprite)
+- [Post CSS for inline, sprite, autoprefixer, comments, sourcesmap, purgecss](https://github.com/postcss/postcss-load-config)
 ## Todo
+
+- Try Vite if it can be more efficient than Gulp
+- Try Webpack to supplant Gulp
+- Implement Eleventy to generate static website
+- Connect API
+- Use PNPM
+

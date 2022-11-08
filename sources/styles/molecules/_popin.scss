@@ -26,10 +26,6 @@
 
   &__container {
     position: relative;
-
-    // position: fixed;
-    // top: 50%;
-    // left: 50%;
     z-index: 2;
     overflow-y: auto;
     width: calc(100% - 3rem);

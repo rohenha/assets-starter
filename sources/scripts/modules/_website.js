@@ -32,7 +32,9 @@ export default class Website extends mmodule {
       animate: this.el.dataset.animate !== undefined,
     }
 
+    // @ifdef DEBUG
     this.setStats()
+    // @endif
     barba.init(this.config)
   }
 
@@ -75,9 +77,11 @@ export default class Website extends mmodule {
   }
 
   animate() {
+    // @ifdef DEBUG
     if (isDebug) {
       this.stats.begin()
     }
+    // @endif
 
     if (this.updateModules && this.isAnimating) {
       this.parseModulesFunctions('animate')
@@ -85,9 +89,12 @@ export default class Website extends mmodule {
     }
 
     // monitored code goes here
+
+    // @ifdef DEBUG
     if (isDebug) {
       this.stats.end()
     }
+    // @endif
     this.requestId = window.requestAnimationFrame(this.animate)
   }
 

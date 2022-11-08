@@ -1,7 +1,8 @@
 .o-blocks {
-  > * {
-    &:not(:last-child) {
-      margin-bottom: 6rem;
-    }
+  display: grid;
+  gap: var(--vr);
+
+  @media #{$lg} {
+    gap: calc(var(--vr) * 2);
   }
 }

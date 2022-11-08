@@ -1,8 +1,8 @@
 {
   "name": "asset-starter",
-  "description": "For more informations about [Atomic Design](https://www.usabilis.com/atomic-design/)",
+  "description": "Front starter for projects",
   "homepage": "https://github.com/rohenha/assets-starter#readme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "repository": {
     "type": "git",
@@ -28,7 +28,8 @@
   ],
   "main": "index.js",
   "scripts": {
-    "build": "gulp build -f utils/gulp --cwd . --env prod",
+    "generate": "gulp build -f utils/gulp --cwd . --env prod",
+    "build": "gulp build -f utils/gulp --cwd . --env prod --debug true",
     "start": "gulp start -f utils/gulp --cwd . --env dev",
     "template": "node utils/scripts/templates"
   },
