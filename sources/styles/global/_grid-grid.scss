@@ -1,7 +1,6 @@
 /* stylelint-disable function-comma-space-after */
+$colw: #{1 / $total-columns * 100%};
 @if $debgrid {
-  $colw: #{1 / $total-columns * 100%};
-
   body {
     position: relative;
 
@@ -34,14 +33,18 @@
   }
 }
 
+.g-container {
+  width: calc(100% - #{$column-padding * 2});
+  max-width: calc(var(--gwidth) - #{$column-padding * 2});
+  margin: 0 auto;
+}
+
 .g-row {
   position: relative;
   display: grid;
   grid-template-columns: repeat($total-columns, 1fr);
   gap: var(--vr) $column-gutter;
   width: calc(100% - #{$column-padding * 2});
-  max-width: calc(var(--gwidth) - #{$column-padding * 2});
-  margin: 0 auto;
 
   &.-xl {
     max-width: 100%;
@@ -49,6 +52,26 @@
 
   &.-c1 {
     grid-template-columns: 1fr;
+  }
+
+  &.-c2 {
+    grid-template-columns: repeat(2, 1fr);
+
+    // gap: var(--vr) $column-gutter;
+  }
+
+  &.-c3 {
+    grid-template-columns: gridcol(6) gridcol(10) gridcol(8);
+
+    // grid-template-columns: gridcol(5, 22) gridcol(9, 22) gridcol(8, 22);
+    // padding: 0 gridpd(1);
+  }
+
+  &.-ctest {
+    grid-template-columns: gridcol(2) gridcol(15) gridcol(6);
+
+    // grid-template-columns: gridcol(5, 22) gridcol(9, 22) gridcol(8, 22);
+    // padding: 0 gridpd(1);
   }
 
   &.-vcenter {

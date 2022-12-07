@@ -30,3 +30,17 @@
 @mixin gridp($width, $offset) {
   grid-column: #{$offset} / #{$offset + $width};
 }
+
+@function gridcol($cols, $parent: $total-columns) {
+  $colw: 1 / $parent * 100;
+  $colr: ($row-width + $column-gutter) / $row-width;
+  $width: $colw * $cols * $colr * 1%;
+  @return calc(#{$width} - #{$column-gutter});
+}
+
+@function gridpd($cols) {
+  $colw: 1 / $total-columns * 100;
+  $colr: ($row-width + $column-gutter) / $row-width;
+  $width: $colw * $cols * $colr * 1%;
+  @return $width;
+}
