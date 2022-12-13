@@ -93,6 +93,7 @@
     "micromodal": "^0.4.10",
     "modujs": "^1.4.2",
     "stats.js": "^0.17.0",
-    "transformation-matrix": "^2.10.0"
+    "transformation-matrix": "^2.10.0",
+    "vanilla-lazyload": "^17.8.3"
   }
 }

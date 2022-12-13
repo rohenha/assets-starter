@@ -1,16 +1,19 @@
 import { module as mmodule } from 'modujs'
 import barba from '@barba/core'
 import Stats from 'stats.js'
+import LazyLoad from 'vanilla-lazyload'
 import { html, body, isDebug } from '../utils/environment'
 import { debounce } from '../utils/utils'
 import * as transitions from '../organisms/_transitions'
+import { modulesConfig } from '../organisms/_modules-config'
 
 export default class Website extends mmodule {
   constructor(m) {
     super(m)
+    this.initalized = false
     this.isAnimating = false
     this.updateModules = false
-    this.transitions = this.setTransitions()
+    this.isAnimating = this.el.dataset.animate !== undefined
 
     this.size = {
       width: 0,
@@ -24,36 +27,48 @@ export default class Website extends mmodule {
     barba.hooks.afterEnter(this.afterEnter.bind(this))
     barba.hooks.enter(this.enter.bind(this))
     barba.hooks.once(this.once.bind(this))
+    barba.hooks.afterOnce(this.afterOnce.bind(this))
     barba.hooks.after(this.after.bind(this))
     barba.hooks.beforeLeave(this.toggleLoad.bind(this, true))
-    this.config = {
+
+    const config = {
       debug: isDebug,
-      transitions: this.transitions,
-      animate: this.el.dataset.animate !== undefined,
+      transitions: this.setTransitions(),
     }
 
-    // @ifdef DEBUG
-    this.setStats()
-    // @endif
-    barba.init(this.config)
+    if (isDebug) {
+      config.logLevel = 'info'
+      config.timeout = 10000
+    }
+
+    barba.init(config)
   }
 
   setStats() {
-    if (isDebug) {
-      this.config.logLevel = 'info'
-      this.config.timeout = 10000
-      this.stats = new Stats()
-      this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
-      body.appendChild(this.stats.dom)
-    }
+    this.stats = new Stats()
+    this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
+    body.appendChild(this.stats.dom)
   }
 
   once() {
-    this.setModulesFunctions()
-    this.updateModules = true
-    this.toggleLoad(false)
+    this.lazy = new LazyLoad({
+      use_native: true,
+      container: this.el,
+      elements_selector: '[data-lazy]',
+      class_loaded: '-loaded',
+      class_loading: '-loading',
+      class_error: '-error',
+      class_entered: '-entered',
+      class_exited: '-exited',
+    })
+  }
+
+  afterOnce() {
     window.addEventListener('resize', this.debounceResize)
-    if (isDebug || this.config.animate) {
+    if (isDebug) {
+      this.setStats()
+    }
+    if (isDebug || this.isAnimating) {
       this.requestId = window.requestAnimationFrame(this.animate)
     }
   }
@@ -73,33 +88,29 @@ export default class Website extends mmodule {
     if (this.updateModules) {
       this.parseModulesFunctions('resize')
       this.parseModulesFunctions('aResize')
+      // window.requestAnimationFrame(() => {
+      // })
     }
   }
 
   animate() {
-    // @ifdef DEBUG
     if (isDebug) {
       this.stats.begin()
     }
-    // @endif
 
+    // monitored code goes here
     if (this.updateModules && this.isAnimating) {
       this.parseModulesFunctions('animate')
       this.parseModulesFunctions('aAnimate')
     }
 
-    // monitored code goes here
-
-    // @ifdef DEBUG
     if (isDebug) {
       this.stats.end()
     }
-    // @endif
     this.requestId = window.requestAnimationFrame(this.animate)
   }
 
   after() {
-    // this.call('update', null, 'Axeptio')
     this.toggleLoad(false)
   }
 
@@ -110,67 +121,54 @@ export default class Website extends mmodule {
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  enter({ current }) {
+  enter({ current, next }) {
     if (current.container) {
       current.container.remove()
+      // window.requestAnimationFrame(() => {
+      // })
     }
+    this.call('update', next.container, 'app')
+    this.lazy.update()
     window.scrollTo(0, 0)
   }
 
-  afterEnter({ next }) {
-    this.call('update', next.container, 'app')
-    this.setModulesFunctions()
+  afterEnter() {
     this.updateModules = true
-    this.resize(true)
+    if (this.initalized) {
+      this.resize(true)
+    }
   }
 
   toggleLoad(state) {
     html.classList[state ? 'remove' : 'add']('is-loaded')
     html.classList[state ? 'add' : 'remove']('is-loading')
+    // window.requestAnimationFrame(() => {
+    // })
     this.isAnimating = !state
   }
 
-  setModulesFunctions() {
-    this.browseModulesFunctions(['resize', 'aResize', 'animate', 'aAnimate'])
-  }
-
-  browseModulesFunctions(funcs) {
-    this.modulesToList = {}
-    funcs.forEach((func) => {
-      this.modulesToList[func] = []
-    })
-    const modules = this.modules.app.app.currentModules
-    const modulesToParse = Object.keys(modules)
-    modulesToParse.forEach((moduleName) => {
-      const moduleInstance = modules[moduleName]
-      funcs.forEach((func) => {
-        if (
-          typeof moduleInstance[func] === 'function' &&
-          !moduleName.includes('Website')
-        ) {
-          this.modulesToList[func].push(moduleName)
-        }
-      })
-    })
-  }
-
   parseModulesFunctions(func) {
-    const modulesFunct = this.modulesToList[func]
+    const modulesFunct = modulesConfig[func]
     const { length } = modulesFunct
+    if (length === 0) {
+      return
+    }
+
     for (let i = 0; i < length; i += 1) {
-      const moduleId = modulesFunct[i]
-      this.modules.app.app.currentModules[moduleId][func]()
+      const moduleName = modulesFunct[i]
+      this.call(func, null, moduleName)
     }
   }
 
   setTransitions() {
     const transitionsArray = []
-    Object.keys(transitions).forEach((transitionName) => {
-      const singleTransition = transitions[transitionName]
+    const keys = Object.keys(transitions)
+    const { length } = keys
+    for (let i = 0; i < length; i += 1) {
+      const singleTransition = transitions[keys[i]]
       singleTransition.init(this, {})
       transitionsArray.push(singleTransition)
-    })
+    }
     return transitionsArray
   }
 }
