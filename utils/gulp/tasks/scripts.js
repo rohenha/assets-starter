@@ -6,6 +6,8 @@ const plugins = require('gulp-load-plugins')()
 const server = require('browser-sync').get('server')
 const babelify = require('babelify')
 const preprocess = require("gulp-preprocess")
+const gulpBrotli = require('gulp-brotli')
+
 /* ─────────────────────────────────────────────────────── */
 const config = require('../config')
 /* ─────────────────────────────────────────────────────── */
@@ -53,9 +55,18 @@ scripts.compiler = () => gulp
     .pipe(
       plugins.if(
         config.env.isProd,
-        plugins.gzip({ deleteMode: 'public/asssets' })
+        gulpBrotli.compress({
+          extension: 'br',
+          skipLarger: true,
+        })
       )
     )
+    // .pipe(
+    //   plugins.if(
+    //     config.env.isProd,
+    //     plugins.gzip({ deleteMode: 'public/asssets' })
+    //   )
+    // )
     .pipe(
       plugins.if(
         config.env.isProd,

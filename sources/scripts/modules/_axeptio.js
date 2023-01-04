@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { module as mmodule } from 'modujs'
+import { setScript } from '../utils/utils'
 
 export default class Axeptio extends mmodule {
   constructor(m) {
@@ -18,7 +19,7 @@ export default class Axeptio extends mmodule {
     this.choices = {}
     window.axeptioSettings = {
       clientId: this.settings.axeptio,
-      cookiesVersion: 'sailcoop-fr',
+      cookiesVersion: 'troa-base',
       userCookiesDuration: 30 * 6,
     }
     this.el.removeAttribute('data-analytics')
@@ -27,16 +28,8 @@ export default class Axeptio extends mmodule {
     // if (isDebug) {
     //   return
     // }
-    this.constructor.setScript('//static.axept.io/sdk.js')
+    setScript('https://static.axept.io/sdk.js')
     this.setAxeptioConfig()
-  }
-
-  static setScript(src) {
-    const t = document.getElementsByTagName('script')[0]
-    const e = document.createElement('script')
-    e.async = true
-    e.src = src
-    t.parentNode.insertBefore(e, t)
   }
 
   setAxeptioConfig() {
@@ -78,6 +71,7 @@ export default class Axeptio extends mmodule {
     })
   }
 
+  // eslint-disable-next-line complexity
   setGA() {
     if (this.states.google_analytics || !this.settings.ga.code) {
       return
@@ -89,6 +83,7 @@ export default class Axeptio extends mmodule {
         break
 
       case 'GA':
+      case 'G':
         this.setGA4()
         break
 
@@ -116,7 +111,7 @@ export default class Axeptio extends mmodule {
   }
 
   setGA4() {
-    this.constructor.setScript(
+    setScript(
       `https://www.googletagmanager.com/gtag/js?id=${this.settings.ga.code}`
     )
 
@@ -135,7 +130,6 @@ export default class Axeptio extends mmodule {
   updateGaPage(url) {
     url = url || window.location.pathname
     if (this.choices.google_analytics) {
-      console.log(window.location.pathname)
       if (this.settings.ga.type === 'UA') {
         window.ga('set', 'page', url)
         window.ga('send', 'pageview')

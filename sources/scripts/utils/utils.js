@@ -202,12 +202,12 @@ export function getResponsiveValue (responsiveObject) {
       }
     })
     return responsiveValue
-  } 
+  }
   return responsiveObject
 }
 
 export function hasTouchEvent() {
-  return ( 'ontouchstart' in window ) || 
+  return ( 'ontouchstart' in window ) ||
     ( navigator.maxTouchPoints > 0 ) ||
     ( navigator.msMaxTouchPoints > 0 );
 }
@@ -216,4 +216,40 @@ export function log(content) {
   if (isDebug) {
     console.log(content)
   }
+}
+
+/**
+ * Get a template from a string
+ * https://stackoverflow.com/a/41015840
+ * @param  {String} str    The string to interpolate
+ * @param  {Object} params The parameters
+ * @return {String}        The interpolated string
+ */
+export function interpolate (str, params) {
+  return str.replace(/\${([^}]+)\}/g, (dummy, v) => params[v] || '')
+}
+
+export function normalizeText(text) {
+  const newText = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+  return newText
+}
+
+
+export function setScript(src, userConf) {
+  const defaultConf = {
+    async: true,
+    id: '',
+  }
+
+  const config = Object.assign(defaultConf, userConf)
+  const t = document.getElementsByTagName('script')[0]
+  const e = document.createElement('script')
+  Object.keys(config).forEach((key) => {
+    if (config[key]) {
+      e[key] = config[key]
+    }
+  })
+  e.src = src
+  t.parentNode.insertBefore(e, t)
+  return e
 }

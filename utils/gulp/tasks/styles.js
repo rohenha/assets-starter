@@ -8,7 +8,7 @@ const assets = require('postcss-assets')
 const mqpacker = require('css-mqpacker')
 const normalize = require('postcss-normalize')
 const sassGlob = require('gulp-sass-glob')
-
+const gulpBrotli = require('gulp-brotli')
 
 /* ─────────────────────────────────────────────────────── */
 const config = require('../config')
@@ -96,9 +96,18 @@ styles.compiler = () => {
     .pipe(
       plugins.if(
         config.env.isProd,
-        plugins.gzip({ deleteMode: 'public/asssets' })
+        gulpBrotli.compress({
+          extension: 'br',
+          skipLarger: true,
+        })
       )
     )
+    // .pipe(
+    //   plugins.if(
+    //     config.env.isProd,
+    //     plugins.gzip({ deleteMode: 'public/asssets' })
+    //   )
+    // )
     .pipe(
       plugins.if(
         config.env.isProd,

@@ -1,15 +1,15 @@
 :root {
   // Typos
-  --font-regular: "Arial", sans-serif;
-  --font-title: "Arial", sans-serif;
-  --fsize: #{100 / $font-size-base * 10%};
+  --font-regular: #{$font-regular};
+  --font-title: #{$font-title};
+  --fsize: #{$fsize};
 
   // Animations
   --anim-duration: .25s;
   --anim-easing: #{$p1easeinout};
 
   // Spaces
-  --vr: 3rem;
+  --vr: $vr;
 
   // Grid
   --gwidth: #{$row-width};

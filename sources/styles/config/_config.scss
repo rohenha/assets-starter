@@ -2,15 +2,32 @@
 
 //  V A R I A B L E S
 //  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+//  Animations
+//  ───────────────────────────────────
+$anim-duration: 250ms;
+$anim-easing: cubic-bezier(.55, 0, .1, 1);
+$anim: $anim-duration $anim-easing;
+
+//  Vertical rythmn
+//  ───────────────────────────────────
+$vr: 3rem;
+
+// Typography
+//  ───────────────────────────────────
+
 $font-size-base: 16;
+$fsize: 100 / $font-size-base * 10%;
+$font-regular: "Arial", sans-serif;
+$font-title: "Arial", sans-serif;
 
 //  Grid
 //  ───────────────────────────────────
-$grid-cntainer: true;
+$grid-container: true;
 $row-width: 144rem;
 $container-width: 100%;
 $total-columns: 24;
-$column-gutter: 1rem;
+$column-gutter: 0rem;
 $column-padding: 0rem;
 $column-width: 6rem;
 $debgrid: true;

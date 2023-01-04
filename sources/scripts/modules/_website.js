@@ -88,8 +88,6 @@ export default class Website extends mmodule {
     if (this.updateModules) {
       this.parseModulesFunctions('resize')
       this.parseModulesFunctions('aResize')
-      // window.requestAnimationFrame(() => {
-      // })
     }
   }
 
@@ -124,8 +122,6 @@ export default class Website extends mmodule {
   enter({ current, next }) {
     if (current.container) {
       current.container.remove()
-      // window.requestAnimationFrame(() => {
-      // })
     }
     this.call('update', next.container, 'app')
     this.lazy.update()
@@ -142,8 +138,6 @@ export default class Website extends mmodule {
   toggleLoad(state) {
     html.classList[state ? 'remove' : 'add']('is-loaded')
     html.classList[state ? 'add' : 'remove']('is-loading')
-    // window.requestAnimationFrame(() => {
-    // })
     this.isAnimating = !state
   }
 
